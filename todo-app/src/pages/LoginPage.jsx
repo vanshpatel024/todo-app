@@ -7,7 +7,7 @@ function LoginPage({ setIsLoginSuccessful }) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [notification, setNotification] = useState(null);
-    const [loading, setLoading] = useState(true); // For preventing blinking
+    const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -25,7 +25,7 @@ function LoginPage({ setIsLoginSuccessful }) {
                 .then(response => {
                     if (response.data.message === "Login successful!") {
                         setIsLoginSuccessful(true);
-                        navigate("/home");
+                        navigate("https://todo-app-lake-sigma-57.vercel.app/home");
                     } else {
                         localStorage.removeItem("username");
                         localStorage.removeItem("password");
@@ -66,7 +66,7 @@ function LoginPage({ setIsLoginSuccessful }) {
                 localStorage.setItem("username", username);
                 localStorage.setItem("password", password);
                 setIsLoginSuccessful(true);
-                navigate("/home");
+                navigate("https://todo-app-lake-sigma-57.vercel.app/home");
             }
         } catch (err) {
             console.error("Login error:", err.response ? err.response.data : err);
