@@ -9,10 +9,15 @@ app.use(cors({
     origin: [
         "http://localhost:5173", 
         "https://todo-app-lake-sigma-57.vercel.app"
-    ],  // Allow your frontend
-    methods: ["GET", "POST", "PUT", "DELETE"], // Add DELETE method
-    allowedHeaders: ["Content-Type"]
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type"],
+    credentials: true,
+    preflightContinue: false,
+    optionsSuccessStatus: 204
 }));
+
+app.options('*', cors()); // Allow preflight across all routes
 
 app.use(express.json());
 
