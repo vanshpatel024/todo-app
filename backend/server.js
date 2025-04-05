@@ -26,7 +26,7 @@ mongoose.connect(MONGO_URI, {
 .catch(err => console.error("MongoDB Connection Error:", err));
 
 //login
-app.post("https://todo-app-xfj3.onrender.com/login", async (req, res) => {
+app.post("/login", async (req, res) => {
     console.log("Received login request:", req.body);
     const { username, password } = req.body;
 
@@ -59,7 +59,7 @@ app.post("https://todo-app-xfj3.onrender.com/login", async (req, res) => {
 });
 
 //registration
-app.post("https://todo-app-xfj3.onrender.com/register", async (req, res) => {
+app.post("/register", async (req, res) => {
     console.log("Received register request:", req.body);
     const { username, password } = req.body;
 
@@ -94,7 +94,7 @@ app.post("https://todo-app-xfj3.onrender.com/register", async (req, res) => {
 });
 
 //fetching of tasks
-app.get("https://todo-app-xfj3.onrender.com/tasks/:username", async (req, res) => {
+app.get("/tasks/:username", async (req, res) => {
     try {
         const { username } = req.params;
         const collection = mongoose.connection.db.collection(username);
@@ -113,7 +113,7 @@ app.get("https://todo-app-xfj3.onrender.com/tasks/:username", async (req, res) =
 });
 
 //adding of a new task
-app.post("https://todo-app-xfj3.onrender.com/addTask", async (req, res) => {
+app.post("/addTask", async (req, res) => {
     const { username, task, timestamp } = req.body;
 
     if (!username || !task) {
@@ -150,7 +150,7 @@ app.post("https://todo-app-xfj3.onrender.com/addTask", async (req, res) => {
 });
 
 //clicking on checkbox (status change)
-app.post("https://todo-app-xfj3.onrender.com/updateTaskStatus", async (req, res) => {
+app.post("/updateTaskStatus", async (req, res) => {
     try {
         const { username, taskId, status } = req.body;
 
@@ -180,7 +180,7 @@ app.post("https://todo-app-xfj3.onrender.com/updateTaskStatus", async (req, res)
 });
 
 //deletion of task
-app.delete("https://todo-app-xfj3.onrender.com/deleteTask", async (req, res) => {
+app.delete("/deleteTask", async (req, res) => {
     const { username, taskId } = req.body;
 
     if (!username || taskId === undefined) {
@@ -221,7 +221,7 @@ app.delete("https://todo-app-xfj3.onrender.com/deleteTask", async (req, res) => 
 });
 
 // Edit task
-app.put("https://todo-app-xfj3.onrender.com/editTask", async (req, res) => {
+app.put("/editTask", async (req, res) => {
     const { username, taskId, updatedTask } = req.body;
 
     if (!username || taskId === undefined || !updatedTask) {
@@ -249,7 +249,7 @@ app.put("https://todo-app-xfj3.onrender.com/editTask", async (req, res) => {
 });
 
 //changing of username
-app.post("https://todo-app-xfj3.onrender.com/changeUsername", async (req, res) => {
+app.post("/changeUsername", async (req, res) => {
     const { oldUsername, newUsername, currentPassword } = req.body;
 
     if (!oldUsername || !newUsername || !currentPassword) {
@@ -301,7 +301,7 @@ app.post("https://todo-app-xfj3.onrender.com/changeUsername", async (req, res) =
 });
 
 //change password
-app.post("https://todo-app-xfj3.onrender.com/changePassword", async (req, res) => {
+app.post("/changePassword", async (req, res) => {
     const { username, currentPasswordForChange, newPassword } = req.body;
 
     if (!username || !currentPasswordForChange || !newPassword) {
