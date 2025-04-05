@@ -6,7 +6,10 @@ const { Long } = require("bson");
 const app = express(); 
 
 app.use(cors({
-    origin: "http://localhost:5173",  // Allow your frontend
+    origin: [
+        "http://localhost:5173", 
+        "https://todo-app-lake-sigma-57.vercel.app"
+    ],  // Allow your frontend
     methods: ["GET", "POST", "PUT", "DELETE"], // Add DELETE method
     allowedHeaders: ["Content-Type"]
 }));
@@ -23,7 +26,7 @@ mongoose.connect(MONGO_URI, {
 .catch(err => console.error("MongoDB Connection Error:", err));
 
 //login
-app.post("/login", async (req, res) => {
+app.post("https://todo-app-xfj3.onrender.com/login", async (req, res) => {
     console.log("Received login request:", req.body);
     const { username, password } = req.body;
 
@@ -56,7 +59,7 @@ app.post("/login", async (req, res) => {
 });
 
 //registration
-app.post("/register", async (req, res) => {
+app.post("https://todo-app-xfj3.onrender.com/register", async (req, res) => {
     console.log("Received register request:", req.body);
     const { username, password } = req.body;
 
@@ -91,7 +94,7 @@ app.post("/register", async (req, res) => {
 });
 
 //fetching of tasks
-app.get("/tasks/:username", async (req, res) => {
+app.get("https://todo-app-xfj3.onrender.com/tasks/:username", async (req, res) => {
     try {
         const { username } = req.params;
         const collection = mongoose.connection.db.collection(username);
@@ -110,7 +113,7 @@ app.get("/tasks/:username", async (req, res) => {
 });
 
 //adding of a new task
-app.post("/addTask", async (req, res) => {
+app.post("https://todo-app-xfj3.onrender.com/addTask", async (req, res) => {
     const { username, task, timestamp } = req.body;
 
     if (!username || !task) {
@@ -147,7 +150,7 @@ app.post("/addTask", async (req, res) => {
 });
 
 //clicking on checkbox (status change)
-app.post("/updateTaskStatus", async (req, res) => {
+app.post("https://todo-app-xfj3.onrender.com/updateTaskStatus", async (req, res) => {
     try {
         const { username, taskId, status } = req.body;
 
@@ -177,7 +180,7 @@ app.post("/updateTaskStatus", async (req, res) => {
 });
 
 //deletion of task
-app.delete("/deleteTask", async (req, res) => {
+app.delete("https://todo-app-xfj3.onrender.com/deleteTask", async (req, res) => {
     const { username, taskId } = req.body;
 
     if (!username || taskId === undefined) {
@@ -218,7 +221,7 @@ app.delete("/deleteTask", async (req, res) => {
 });
 
 // Edit task
-app.put("/editTask", async (req, res) => {
+app.put("https://todo-app-xfj3.onrender.com/editTask", async (req, res) => {
     const { username, taskId, updatedTask } = req.body;
 
     if (!username || taskId === undefined || !updatedTask) {
@@ -246,7 +249,7 @@ app.put("/editTask", async (req, res) => {
 });
 
 //changing of username
-app.post("/changeUsername", async (req, res) => {
+app.post("https://todo-app-xfj3.onrender.com/changeUsername", async (req, res) => {
     const { oldUsername, newUsername, currentPassword } = req.body;
 
     if (!oldUsername || !newUsername || !currentPassword) {
@@ -298,7 +301,7 @@ app.post("/changeUsername", async (req, res) => {
 });
 
 //change password
-app.post("/changePassword", async (req, res) => {
+app.post("https://todo-app-xfj3.onrender.com/changePassword", async (req, res) => {
     const { username, currentPasswordForChange, newPassword } = req.body;
 
     if (!username || !currentPasswordForChange || !newPassword) {
@@ -328,4 +331,6 @@ app.post("/changePassword", async (req, res) => {
 });
 
 
-app.listen(5000, () => console.log("Server running on port 5000"));
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+

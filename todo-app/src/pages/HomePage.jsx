@@ -51,7 +51,7 @@ function HomePage() {
 
     const fetchTasks = async (username) => {
         try {
-            const response = await fetch(`http://localhost:5000/tasks/${username}`);
+            const response = await fetch(`https://todo-app-xfj3.onrender.com/tasks/${username}`);
             const data = await response.json();
 
             // Sort tasks by taskId in descending order before updating state
@@ -100,7 +100,7 @@ function HomePage() {
         const timestamp = Date.now();
 
         try {
-            const response = await fetch("http://localhost:5000/addTask", {
+            const response = await fetch("https://todo-app-xfj3.onrender.com/addTask", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -149,7 +149,7 @@ function HomePage() {
         }
 
         try {
-            const response = await fetch("http://localhost:5000/editTask", {
+            const response = await fetch("https://todo-app-xfj3.onrender.com/editTask", {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -182,7 +182,7 @@ function HomePage() {
     //delete task call
     const deleteTask = async (taskId) => {
         try {
-            const response = await fetch(`http://localhost:5000/deleteTask`, {
+            const response = await fetch(`https://todo-app-xfj3.onrender.com/deleteTask`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",
@@ -212,7 +212,7 @@ function HomePage() {
     //status change (completed/pending)
     const updateTaskStatus = async (taskId, newStatus) => {
         try {
-            const response = await fetch("http://localhost:5000/updateTaskStatus", {
+            const response = await fetch("https://todo-app-xfj3.onrender.com/updateTaskStatus", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -254,7 +254,7 @@ function HomePage() {
         }
 
         try {
-            const response = await fetch("http://localhost:5000/changeUsername", {
+            const response = await fetch("https://todo-app-xfj3.onrender.com/changeUsername", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -317,7 +317,7 @@ function HomePage() {
         }
     
         try {
-            const response = await fetch("http://localhost:5000/changePassword", {
+            const response = await fetch("https://todo-app-xfj3.onrender.com/changePassword", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
