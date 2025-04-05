@@ -11,7 +11,7 @@ function App() {
     return (
         <Router>
             <Routes>
-                <Route path="https://todo-app-lake-sigma-57.vercel.app/" element={<Navigate to="https://todo-app-lake-sigma-57.vercel.app/login" />} />
+                <Route path="https://todo-app-lake-sigma-57.vercel.app" element={<Navigate to="https://todo-app-lake-sigma-57.vercel.app/login" />} />
                 <Route path="https://todo-app-lake-sigma-57.vercel.app/login" element={<LoginPage setIsLoginSuccessful={setIsLoginSuccessful} />} />
                 <Route path="https://todo-app-lake-sigma-57.vercel.app/register" element={<CNAPage />} />
                 <Route path="https://todo-app-lake-sigma-57.vercel.app/home" element={isLoginSuccessful ? <HomePage /> : <Navigate to="https://todo-app-lake-sigma-57.vercel.app/login" />} />
