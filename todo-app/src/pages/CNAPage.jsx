@@ -31,7 +31,7 @@ function CNAPage() {
         }
 
         try {
-            const response = await axios.post("http://localhost:5000/register", {
+            const response = await axios.post("https://todo-app-xfj3.onrender.com/register", {
                 username: trimmedUsername,
                 password
             });

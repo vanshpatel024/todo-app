@@ -21,7 +21,7 @@ function LoginPage({ setIsLoginSuccessful }) {
         const storedPassword = localStorage.getItem("password");
 
         if (storedUsername && storedPassword) {
-            axios.post("http://localhost:5000/login", { username: storedUsername, password: storedPassword })
+            axios.post("https://todo-app-xfj3.onrender.com/login", { username: storedUsername, password: storedPassword })
                 .then(response => {
                     if (response.data.message === "Login successful!") {
                         setIsLoginSuccessful(true);
@@ -57,7 +57,7 @@ function LoginPage({ setIsLoginSuccessful }) {
 
         try {
             const response = await axios.post(
-                "http://localhost:5000/login",
+                "https://todo-app-xfj3.onrender.com/login",
                 { username, password },
                 { headers: { "Content-Type": "application/json" } }
             );
