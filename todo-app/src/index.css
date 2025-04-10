@@ -353,9 +353,8 @@ hr {
     color: white;
     padding: 15px;
     border-radius: 5px;
-    width: 100%;
     overflow-x: hidden;
-    max-width: 1830px;
+    width: 100%;
     text-align: center;
 }
 
