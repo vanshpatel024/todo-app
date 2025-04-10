@@ -51,7 +51,7 @@ function HomePage() {
 
     const fetchTasks = async (username) => {
         try {
-            const response = await fetch(`https://todo-app-xfj3.onrender.com/tasks/${username}`);
+            const response = await fetch(`/tasks/${username}`);
             const data = await response.json();
 
             // Sort tasks by taskId in descending order before updating state

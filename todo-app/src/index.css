@@ -315,8 +315,8 @@ hr {
     border-radius: 8px;
     margin: 10px;
     margin-top: 20px;
+    scroll-behavior: smooth;
 }
-
 
 .displayContainer::-webkit-scrollbar {
     width: 8px;
@@ -335,11 +335,6 @@ hr {
 
 .displayContainer::-webkit-scrollbar-thumb:hover {
     background: var(--ac-hover);
-}
-
-
-.displayContainer {
-    scroll-behavior: smooth;
 }
 
 .tasksWrapper {
