@@ -344,7 +344,7 @@ hr {
     align-items: center;
     gap: 10px;
     margin-right: 20px;
-    margin-left: 0.75%;
+    margin-left: 20px;
 }
 
 .taskContainer {
@@ -354,7 +354,7 @@ hr {
     padding: 15px;
     border-radius: 5px;
     overflow-x: hidden;
-    width: 98%;
+    width: 100%;
     text-align: center;
 }
 
