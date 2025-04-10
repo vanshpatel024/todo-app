@@ -343,7 +343,7 @@ hr {
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    margin-right: 20px;
+    margin-right: 0.75%;
     margin-left: 0.75%;
 }
 
@@ -354,7 +354,7 @@ hr {
     padding: 15px;
     border-radius: 5px;
     overflow-x: hidden;
-    width: 98%;
+    max-width: 1880px;
     text-align: center;
 }
 
