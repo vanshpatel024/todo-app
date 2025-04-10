@@ -350,12 +350,11 @@ hr {
 .taskContainer {
     display: flex;
     background-color: var(--btn);
-    margin-right: auto;
     color: white;
     padding: 15px;
     border-radius: 5px;
     overflow-x: hidden;
-    width: 100%;
+    width: 90%;
     text-align: center;
 }
 
