@@ -350,6 +350,7 @@ hr {
 .taskContainer {
     display: flex;
     background-color: var(--btn);
+    margin-right: auto;
     color: white;
     padding: 15px;
     border-radius: 5px;
